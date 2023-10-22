@@ -84,4 +84,4 @@ jobs:
     - name: Upload SARIF file
       uses: github/codeql-action/upload-sarif@v2
       with:
-        sarif_file: java.sarif
+        sarif_file: /home/runner/work/laboras-2-api/results/java.sarif
