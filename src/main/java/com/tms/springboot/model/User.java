@@ -29,7 +29,7 @@ public abstract class User implements Serializable {
     private LocalDate dateOfBirth;
     private LocalDate registrationDate = LocalDate.now();
 
-    public User(String loginName, String password, String name, String surname, String email, String phoneNumber, LocalDate dateOfBirth, LocalDate registrationDate) {
+    protected User(String loginName, String password, String name, String surname, String email, String phoneNumber, LocalDate dateOfBirth, LocalDate registrationDate) {
         this.loginName = loginName;
         this.password = password;
         this.name = name;
