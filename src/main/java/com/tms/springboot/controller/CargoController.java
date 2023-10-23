@@ -18,9 +18,9 @@ public class CargoController {
         return cargoService.viewAllCargo();
     }
 
-    @GetMapping(value = "/findCargoById/{id}")
-    public Cargo findCargoById(@PathVariable int id) {
-        var cargo = cargoService.getCargoById(id);
+    @GetMapping(value = "/findCargoById/{cargoId}")
+    public Cargo findCargoById(@PathVariable int cargoId) {
+        var cargo = cargoService.getCargoById(cargoId);
         if (cargo == null)
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         return cargo;
@@ -39,11 +39,11 @@ public class CargoController {
         return existingCargo;
     }
 
-    @DeleteMapping(value = "/removeCargo/{id}")
-    public void deleteCargo(@PathVariable int id) {
-        var cargo = cargoService.getCargoById(id);
+    @DeleteMapping(value = "/removeCargo/{cargoId}")
+    public void deleteCargo(@PathVariable int cargoId) {
+        var cargo = cargoService.getCargoById(cargoId);
         if (cargo == null)
             throw new  ResponseStatusException(HttpStatus.NOT_FOUND);
-        cargoService.deleteCargo(id);
+        cargoService.deleteCargo(cargoId);
     }
 }
