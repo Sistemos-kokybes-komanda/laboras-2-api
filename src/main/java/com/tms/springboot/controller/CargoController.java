@@ -20,7 +20,7 @@ public class CargoController {
 
     @GetMapping(value = "/findCargoById/{id}")
     public Cargo findCargoById(@PathVariable int id) {
-        var cargo = cargoService.getCargoById(id);
+        final var cargo = cargoService.getCargoById(id);
         if (cargo == null)
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         return cargo;
@@ -41,7 +41,7 @@ public class CargoController {
 
     @DeleteMapping(value = "/removeCargo/{id}")
     public void deleteCargo(@PathVariable int id) {
-        var cargo = cargoService.getCargoById(id);
+        final var cargo = cargoService.getCargoById(id);
         if (cargo == null)
             throw new  ResponseStatusException(HttpStatus.NOT_FOUND);
         cargoService.deleteCargo(id);
