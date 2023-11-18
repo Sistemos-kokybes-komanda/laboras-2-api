@@ -9,9 +9,12 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 public class CargoController {
-
+    private final CargoService cargoService;
     @Autowired
-    private CargoService cargoService;
+
+    public CargoController(CargoService cargoService){
+        this.cargoService = cargoService;
+    }
 
     @GetMapping(value = "/allCargo")
     public Iterable<Cargo> findAllCargo() {
