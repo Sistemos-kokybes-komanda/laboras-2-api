@@ -7,8 +7,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CargoService {
+    private final CargoRepository cargoRepository;
+
     @Autowired
-    private CargoRepository cargoRepository;
+    public CargoService(CargoRepository cargoRepository){
+        this.cargoRepository = cargoRepository;
+    }
 
     public Cargo createCargo(Cargo cargo) {
         return cargoRepository.save(cargo);
