@@ -24,13 +24,15 @@ public class CargoService {
 
     public Cargo updateCargo(Cargo cargo) {
         Cargo existingCargo = cargoRepository.findById(cargo.getId()).orElse(null);
-        if (existingCargo == null)
-            return null;
-        existingCargo.setCargoType(cargo.getCargoType());
-        existingCargo.setNumberOfProducts(cargo.getNumberOfProducts());
-        existingCargo.setCargoWeight(cargo.getCargoWeight());
-        existingCargo.setDeliveryStatus(cargo.getDeliveryStatus());
-        return cargoRepository.save(existingCargo);
+        Cargo result = null;
+        if (existingCargo != null) {
+            existingCargo.setCargoType(cargo.getCargoType());
+            existingCargo.setNumberOfProducts(cargo.getNumberOfProducts());
+            existingCargo.setCargoWeight(cargo.getCargoWeight());
+            existingCargo.setDeliveryStatus(cargo.getDeliveryStatus());
+            result = cargoRepository.save(existingCargo);
+        }
+        return result;
     }
 
     public Cargo getCargoById(int id) {
